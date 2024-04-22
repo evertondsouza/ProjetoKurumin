@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0; /* Remova as margens padrão */
+    padding: 0; /* Remova o preenchimento padrão */
+}
+.navbar::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 220px;
+    right: 220px;
+    background: 2px #CBE3FD; /* Cor de fundo transparente */
+    border-radius: 10px; /* Borda arredondada */
+    z-index: -1; /* Certifique-se de que a borda esteja atrás do conteúdo */
+}
+/* Ajustes na barra de navegação */
+.navbar-brand {
+    margin-right: auto; /* Move a logo para a esquerda */
+}
+
+.navbar-nav {
+    margin-left: auto; /* Move os botões para a direita */
+}
+
+.navbar-nav .nav-link {
+    margin-right: 20px; /* Espaçamento entre os botões */
+}
+/* Cores personalizadas para os botões */
+.btn-purple 
+{
+        background-color: purple;
+        color: white;
+        border-radius: 10px; /* Borda arredondada */
+        padding: 15px 30px; /* Maior padding para tornar o botão maior */
+        display: flex;
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        position: relative; /* Adiciona posição relativa para ajustar o ícone */
+}      
+   /* Estilos para o ícone dentro do botão */
+.btn-purple i {
+    font-size: 30PX; /* tamanho do ícone */
+
+}
+.btn-purple:hover::after {
+    content: "Início"; /* Texto que será exibido ao passar o mouse */
+    position: absolute;
+    top: calc(100% + 10px); /* Posiciona o texto acima do botão */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do texto */
+    font-weight: bold;
+    color: white; /* Cor do texto */
+    padding: 5px 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 14px; /* Tamanho da fonte */
+    pointer-events: none; /* Permite que o mouse passe por cima do texto */
+    z-index: 2;
+}
+.btn-red {
+    background-color: #BD0000;
+    color: white;
+    border-radius: 10px; /* Borda arredondada */
+    padding: 15px 30px; /* Maior padding para tornar o botão maior */
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    position: relative; /* Adiciona posição relativa para ajustar o ícone */
+} 
+.btn-red i {
+    font-size: 30PX; /* tamanho do ícone */
+}.btn-red:hover::after {
+    content: "vídeos"; /* Texto que será exibido ao passar o mouse */
+    position: absolute;
+    top: calc(100% + 10px); /* Posiciona o texto acima do botão */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do texto */
+    font-weight: bold;
+    color: white; /* Cor do texto */
+    padding: 5px 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 14px; /* Tamanho da fonte */
+    pointer-events: none; /* Permite que o mouse passe por cima do texto */
+    z-index: 2;  
+}
+.btn-green {
+    background-color: rgb(128, 62, 0);
+    color: white;
+    border-radius: 10px; /* Borda arredondada */
+    padding: 15px 30px; /* Maior padding para tornar o botão maior */
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    position: relative; /* Adiciona posição relativa para ajustar o ícone */
+}
+.btn-green i {
+    font-size: 30PX; /* tamanho do ícone */
+
+}.btn-green:hover::after {
+        content: "Cursos"; /* Texto que será exibido ao passar o mouse */
+        position: absolute;
+        top: calc(100% + 10px); /* Posiciona o texto acima do botão */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do texto */
+        font-weight: bold;
+        color: white; /* Cor do texto */
+        padding: 5px 10px; /* Espaçamento interno */
+        border-radius: 5px; /* Borda arredondada */
+        font-size: 14px; /* Tamanho da fonte */
+        pointer-events: none; /* Permite que o mouse passe por cima do texto */
+        z-index: 2;
+}
+#check{
+    display:none;
+} 
+.menu{
+    width: 300px;
+    height: 100px;
+    position: fixed;
+    background-color: #ccc;
+    padding-top: 50px;
+    right: 0;
+    transition: all .25s linear;
+    transform: translateX(100%);
+    z-index: 4;
+}
+#check:checked ~ .menu{
+    transform: translateX(0);
+}
+input[type='checkbox']#check{
+    display: none;
+}
+label[for="check"]{
+    cursor: pointer;
+}
+label[for="check"]{
+    font-size: 30px;
+}
+label[for="check"] {
+    display: inline-block;
+    width: 50px; /* Largura desejada */
+    height: 50px; /* Altura desejada */
+    background-color: rgb(16,70,170); /* Cor de fundo do botão */
+    border-radius: 20%; /* Bordas arredondadas para criar um botão circular */
+    text-align: center; /* Centralizando o ícone horizontalmente e verticalmente */
+    line-height: 50px; /* Centralizando o ícone verticalmente */
+}
+/* Alterando a cor do botão ao passar o mouse sobre ele */
+label[for="check"]:hover {
+    background-color: #999; /* Nova cor de fundo ao passar o mouse */
+}
+.menu a{
+    Color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+.banner{
+    /* Adiciona a imagem de fundo e define seu tamanho e posição */
+    width: 100%;
+    height: 574px;
+    background-image: url('../formulario/images/WhatsApp Image 2024-04-21 at 21.12.38.jpeg'); /*imagem do banner*/
+    background-repeat: no-repeat; /* Evita que a imagem de fundo seja repetida */
+    background-size: cover; /* Faz a imagem cobrir todo o container */
+    background-position: center; /* Centraliza a imagem no container */
+    color: #0b0c0c; /* Define a cor do texto como branco para contrastar com a imagem */
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 1; /* Define a ordem de empilhamento */
+    overflow: hidden;
+    background-color: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 0));
+/*contêiner com desfoque transparente */
+/* CSS para o contêiner com desfoque transparente */
+}
+.banner h1
+ {
+    font-family: "Poppins", sans-serif;
+    color: #7721cc; /* Cor padrão para os textos */
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 6px black;
+    text-align: left;
+    margin-top: 300px;
+}
+.banner h2 
+{
+    font-family: "Poppins", sans-serif;
+    color: #029A14; /* Cor padrão para o texto primário */
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 6px black;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 300px;
+}
+.banner h3 
+{
+    font-family: "Poppins", sans-serif;
+    color: #0b0b0c; /* Cor padrão para o texto desativado */
+
+    font-size: 30px;
+    text-shadow: 2px 2px 6px black;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 300px;
+}
+.card {
+    transition: transform 0.3s; /* Adiciona uma transição suave de 0.3 segundos */
+    border-radius: 50px; /* Define o raio da borda para 15px */
+}
+
+.card:hover {
+    transform: scale(1.1); /* Aumenta a escala da imagem em 10% ao passar o mouse por cima */
+}
+.container-margin-top{
+    margin-top: 20px;
+
+}
+.card {
+    height: 100%;
+    width: 20rem; /* largura dos cards */
+    margin-bottom: 15px; /* espaçamento entre os cards */
+ 
+}
+/* Defina as cores personalizadas */
+.bg-prim{
+    background-color: #007bff; /* Azul */
+    color: black; /* Texto branco */
+}
+
+.bg-seg {
+    background-color: #0e64af; /* Cinza */
+    color: red; /* Texto branco */
+}
+
+/* Para dispositivos pequenos, como celulares, os cards ocuparão toda a largura */
+@media (max-width: 768px) {
+    .col-lg-4 {
+        width: 100%;
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient( 2deg, #95143A 0%, #95143A 50%,#014298 50%, #014298 100%);
+    background-attachment: fixed; /* Fixa o plano de fundo */
+    background-size: cover; /* Cobrir toda a área visível */
+    background-position: center; /* Centraliza o plano de fundo */
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.team {
+    margin: 32px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+}
+
+.team .avatar {
+    position: relative; /* Necessário para posicionar o texto */
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+
+.team {
+    margin: 32px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+}
+
+.team .avatar {
+    width: 200px;
+    height: 200px;
+    overflow: hidden; /* Esconde as partes da imagem que ultrapassam o círculo */
+    border-radius: 50%; /* Transforma o elemento em um círculo */
+}
+
+.team .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team .avatar:hover img {
+    transform: scale(1.1);
+}
+
+.avatar span {
+    margin-top: 5px; /* Espaçamento entre o nome e a imagem */
+    font-weight: bold;
+}
+footer {
+    width: 100%;
+    height: 400px; /* Defina a altura desejada */
+    min-height: 100px; /* Garante que a altura mínima seja respeitada */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e;
+    color: #e1e1e1;
+    padding: 50px;
+}
+
+h1, p {
+    margin-bottom: 20px; /* Adiciona um espaçamento entre os elementos */
+}
+footer h1 {
+    color: hsl(42, 90%, 55%); /* Cor dourada */
+}

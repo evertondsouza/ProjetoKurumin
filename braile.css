@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../formulario/images/banner-tradutor.jpg');
+    background-size: cover;
+    color: blue;
+}
+.container {
+    text-align: center;
+}
+#inputText {
+    width: 200%; /* Largura da caixa de texto */
+    height: 200px; /* Altura da caixa de texto */
+    margin-bottom: 20px;
+    border-radius: 15px;
+    font-size: 20px; /* Tamanho da fonte */
+
+}
+.buttons-container {
+    width: 150px; /* Largura dos botões */
+    height: 50px; /* Altura dos botões */
+    font-size: 16px; /* Tamanho da fonte dentro dos botões */
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: space-between; /* Espaçamento igual entre os botões */
+    align-items: center;
+    width: 80%; /* Largura do container dos botões */
+    margin: auto; /* Centralizar horizontalmente */
+    font-size: 20px; /* Tamanho da fonte */
+
+}
+  
+  .buttons-container button {
+    width: 60px; /* Largura dos botões */
+    height: 80px;
+}
+#brailleOutput {
+    width: 200%; /* Largura da caixa de texto */
+    height: 200px; /* Altura da caixa de texto */
+    margin: 20px auto; /* Margens superior e inferior 20px, e centraliza horizontalmente */
+    padding: 10px; /* Espaçamento interno de 10px */
+    font-size: 20px; /* Tamanho da fonte */
+    border: 1px solid #ccc; /* Borda com cor cinza claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    resize: none; /* Impede redimensionamento da caixa de texto */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical quando necessário */
+    text-align: left; /* Alinha o texto à esquerda */
+    background: white;
+    border-radius: 15px;;
+    color: black; /* Cor do texto */
+}
+  .braille-character {
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+}
+
+  

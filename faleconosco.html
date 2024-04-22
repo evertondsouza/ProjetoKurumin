@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="faleconosco.css"/>
+    <script src="https://kit.fontawesome.com/bfa65f44d3.js" crossorigin="anonymous"></script>
+    <title>Formulário de contato</title>
+</head>
+<body>
+    <form action="https://formsubmit.co/andradericharde8@gmail.com" method="POST">
+    <div class="container">
+        <div class="content">
+            <div class="left-side">
+                <div class="address details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="topic">Endereço</div> 
+                    <div class="text-one" >Av. Ramos Ferreira, nº 991  AM, 69010-120</div>
+                    <div class="text-two">Centro, Manaus </div>
+                </div>
+                <div class="address details">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="topic">Telefone</div> 
+                    <div class="text-one" >(92) 3878-7471</div>
+                </div>
+                <div class="address details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">Email</div> 
+                    <div class="text-one" >kurumindev@gmail.com</div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="topic-box">Envie sua mensagem</div>
+                <p>
+                    Estamos aqui para ajudar! Envie uma mensagem a um especialista da KuruminDev.
+                </p>
+
+                    <div class="input-box">
+                        <input type="text" name='name' placeholder="Digite seu nome" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" name='email' placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="input-box message-box">
+                        <textarea name="message" placeholder="Digite sua mensagem" required></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="submit">Enviar</button> <!-- Alterado para type="submit" -->
+                        <input type="hidden" name="_subject" value="Novo Contato!">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(){
+            window.location.href = 'index.html'; // Redireciona para a página index após enviar o formulário
+        });
+    </script>
+</body>
+</html>

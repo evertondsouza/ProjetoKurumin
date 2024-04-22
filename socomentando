@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a escala inicial para dispositivos móveis -->
+<title>Tradutor para Braille</title> <!-- Título da página -->
+<style>
+  body {
+    font-family: Arial, sans-serif; <!-- Define a fonte do texto -->
+  }
+  #inputText {
+    width: 300px; <!-- Define a largura do campo de entrada de texto -->
+    height: 100px; <!-- Define a altura do campo de entrada de texto -->
+  }
+  #brailleOutput {
+    margin-top: 20px; <!-- Define a margem superior para a saída em Braille -->
+    font-size: 24px; <!-- Define o tamanho da fonte para a saída em Braille -->
+  }
+  .braille-character {
+    display: inline-block; <!-- Define a exibição inline-block para caracteres em Braille -->
+    width: 1em; <!-- Define a largura para caracteres em Braille -->
+    text-align: center; <!-- Define o alinhamento central para caracteres em Braille -->
+  }
+</style>
+<script>
+function translateToBraille() {
+  const inputText = document.getElementById('inputText').value.toLowerCase(); // Obtém o texto de entrada e o converte para minúsculas
+  const brailleAlphabet = { // Define o alfabeto Braille com mapeamento de caracteres
+    'a': '⠁', 'b': '⠃', 'c': '⠉', 'd': '⠙', 'e': '⠑',
+    'f': '⠋', 'g': '⠛', 'h': '⠓', 'i': '⠊', 'j': '⠚',
+    ...
+    'û': '⠢', 'ç': '⠯'
+  };
+
+  let brailleOutput = ''; // Inicializa a saída em Braille como uma string vazia
+  for (let i = 0; i < inputText.length; i++) { // Itera sobre cada caractere do texto de entrada
+    const char = inputText.charAt(i); // Obtém o caractere atual
+    brailleOutput += (brailleAlphabet[char] || char) + ' '; // Adiciona o caractere Braille correspondente à saída ou mantém o caractere original se não houver correspondência
+  }
+  document.getElementById('brailleOutput').textContent = brailleOutput; // Define o texto Braille na div de saída
+}
+
+function downloadText() {
+  const brailleOutput = document.getElementById('brailleOutput').textContent; // Obtém o texto Braille da div de saída
+  const blob = new Blob([brailleOutput], { type: 'text/plain' }); // Cria um blob de texto a partir do texto Braille
+  const url = URL.createObjectURL(blob); // Cria um URL para o blob
+  const a = document.createElement('a'); // Cria um elemento âncora
+  a.href = url; // Define o URL como o href do âncora
+  a.download = 'traducao_braille.txt'; // Define o nome do arquivo para download
+  a.style.display = 'none'; // Oculta o link
+  document.body.appendChild(a); // Adiciona o âncora ao corpo do documento
+  a.click(); // Simula um clique no âncora para iniciar o download
+  document.body.removeChild(a); // Remove o âncora do corpo do documento após o download
+  URL.revokeObjectURL(url); // Revoga o URL do objeto blob para liberar recursos
+}
+</script>
+</head>
+<body>
+<h1>Tradutor para Braille</h1> <!-- Título da página -->
+<textarea id="inputText" placeholder="Digite o texto aqui"></textarea> <!-- Campo de entrada de texto -->
+<button onclick="translateToBraille()">Traduzir para Braille</button> <!-- Botão para traduzir o texto para Braille -->
+<div id="brailleOutput"></div> <!-- Div para exibir o texto traduzido em Braille -->
+<button onclick="downloadText()">Baixar em Texto</button> <!-- Botão para baixar o texto traduzido em Braille -->
+</body>
+</html>

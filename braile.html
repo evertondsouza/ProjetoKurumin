@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="braile.css"/>
+<title>Tradutor para Braille</title>
+
+<script>
+function translateToBraille() {
+  const inputText = document.getElementById('inputText').value.toLowerCase();
+  const brailleAlphabet = {
+    'a': '⠁', 'b': '⠃', 'c': '⠉', 'd': '⠙', 'e': '⠑',
+    'f': '⠋', 'g': '⠛', 'h': '⠓', 'i': '⠊', 'j': '⠚',
+    'k': '⠅', 'l': '⠇', 'm': '⠍', 'n': '⠝', 'o': '⠕',
+    'p': '⠏', 'q': '⠟', 'r': '⠗', 's': '⠎', 't': '⠞',
+    'u': '⠥', 'v': '⠧', 'w': '⠺', 'x': '⠭', 'y': '⠽',
+    'z': '⠵', ' ': '⠠⠠', ',': '⠂', '.': '⠲', '!': '⠖',
+    '?': '⠦', ';': '⠆', ':': '⠒', '(': '⠴', ')': '⠶',
+    '-': '⠤', '_': '⠤', '/': '⠶', '&': '⠯', '#': '⠼',
+    '@': '⠪', '*': '⠔', '+': '⠖', '=': '⠶', '[': '⠢',
+    ']': '⠣', '{': '⠖', '}': '⠶', '|': '⠳', '<': '⠂',
+    '>': '⠆', '"': '⠦', '\'': '⠄', '`': '⠆', '~': '⠦',
+    'á': '⠷', 'à': '⠢', 'â': '⠡', 'ã': '⠐', 'é': '⠮',
+    'è': '⠔', 'ê': '⠂', 'í': '⠊', 'ì': '⠤', 'ó': '⠵',
+    'ò': '⠎', 'ô': '⠬', 'õ': '⠥', 'ú': '⠾', 'ù': '⠜',
+    'û': '⠢', 'ç': '⠯'
+  };
+
+  let brailleOutput = '';
+  for (let i = 0; i < inputText.length; i++) {
+    const char = inputText.charAt(i);
+    brailleOutput += (brailleAlphabet[char] || char) + ' ';
+  }
+  document.getElementById('brailleOutput').textContent = brailleOutput;
+}
+
+function downloadText() {
+  const brailleOutput = document.getElementById('brailleOutput').textContent;
+  const blob = new Blob([brailleOutput], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'traducao_braille.txt';
+  a.style.display = 'none'; // Hide the link
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</head>
+<body>
+  <div class="container">
+    <h1>Tradutor para Braille</h1>
+    <textarea id="inputText" placeholder="Digite o texto aqui"></textarea>
+    <button onclick="translateToBraille()">Traduzir para Braille</button>
+    <div id="brailleOutput"></div>
+    <button onclick="downloadText()">Baixar em Texto</button>
+  </div>
+</body>
+
+</html>
